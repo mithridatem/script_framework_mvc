@@ -47,11 +47,11 @@ else
         RewriteRule ^(.+)$ index.php [QSA,L]">>$DIRECTORY/.htaccess
         # Création du fichier de configuration BDD
         echo "<?php
-        const BDD_SERVER = '$HOST';
-        const BDD_NAME = '$DATABASE';
-        const BDD_LOGIN = '$USERDB';
-        const BDD_PASSWORD = '$USERPWD';
-        const BASE_URL = '$DIRECTORY';
+        const DB_HOST = '$HOST';
+        const DB_NAME = '$DATABASE';
+        const DB_USER = '$USERDB';
+        const DB_PASSWORD = '$USERPWD';
+        const BASE_URL = '/$DIRECTORY';
         ?>">>$DIRECTORY/env.local.php
 
         # télécharger l'archive
@@ -70,7 +70,7 @@ else
         echo "Archive dézippée avec succés"
         echo "Votre projet a été créé"
         echo "Fin du script"
-        cd $DIRECTORY
+
         # Test si composer est installé
         if  (! command -v composer &> /dev/null)
         then
