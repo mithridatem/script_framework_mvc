@@ -57,11 +57,10 @@ else
         # télécharger l'archive
         # Variables
         URL="https://github.com/mithridatem/script_framework_mvc/blob/main/archivev1.tar.gz"
-        FICHIER="archive.tar.gz"
 
         # Télécharger l'archive dans DEST_DIR
         cd "$DIRECTORY"
-        curl -L "$URL" -o "$FICHIER"
+        curl -L "$URL"
 
         # Extraire au même niveau que l'archive
         tar -xzvf "$FICHIER"
