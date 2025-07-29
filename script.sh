@@ -59,15 +59,13 @@ else
         URL="https://github.com/mithridatem/script_framework_mvc/blob/main/archive.tar.gz"
         FICHIER="archive.tar.gz"
 
-        # Chemin absolu du dossier où tu veux stocker l'archive
-        DEST_DIR="$PWD"  # Par défaut : dossier où tu lances le script
-
         # Télécharger l'archive dans DEST_DIR
-        cd "$DEST_DIR"
+        cd "$DIRECTORY"
         curl -L "$URL" -o "$FICHIER"
 
         # Extraire au même niveau que l'archive
-        tar -xvf "$FICHIER" -C "$DEST_DIR"
+        tar -xzvf "$FICHIER"
+
         echo "Archive dézippée avec succés"
         echo "Votre projet a été créé"
         echo "Fin du script"
