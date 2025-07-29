@@ -56,12 +56,12 @@ else
 
         # télécharger l'archive
         # Variables
-        URL="https://github.com/mithridatem/script_framework_mvc/raw/refs/heads/main/archivev1.tar.gz"
-        FICHIER="archivev1.tar.gz"
+        URL="https://github.com/mithridatem/script_framework_mvc/raw/refs/heads/main/archivev2.tar.gz"
+        FICHIER="archivev2.tar.gz"
 
         # Télécharger l'archive dans DEST_DIR
         cd "$DIRECTORY"
-        curl -L -o archivev1.tar.gz "https://github.com/mithridatem/script_framework_mvc/raw/refs/heads/main/archivev1.tar.gz"
+        curl -L -o archivev1.tar.gz "https://github.com/mithridatem/script_framework_mvc/raw/refs/heads/main/archivev2.tar.gz"
  
 
         # Extraire au même niveau que l'archive
