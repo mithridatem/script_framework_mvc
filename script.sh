@@ -56,7 +56,7 @@ else
 
         # télécharger l'archive
         # Variables
-        URL="https://github.com/mithridatem/script_framework_mvc/blob/main/archive.tar.gz"
+        URL="https://github.com/mithridatem/script_framework_mvc/blob/main/archivev1.tar.gz"
         FICHIER="archive.tar.gz"
 
         # Télécharger l'archive dans DEST_DIR
