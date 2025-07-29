@@ -47,20 +47,22 @@ else
         RewriteRule ^(.+)$ index.php [QSA,L]">>$DIRECTORY/.htaccess
         # Création du fichier de configuration BDD
         echo "<?php
-            const BDD_SERVER = '$HOST';
-            const BDD_NAME = '$DATABASE';
-            const BDD_LOGIN = '$USERDB';
-            const BDD_PASSWORD = '$USERPWD';
-            const BASE_URL = '$DIRECTORY';
+        const BDD_SERVER = '$HOST';
+        const BDD_NAME = '$DATABASE';
+        const BDD_LOGIN = '$USERDB';
+        const BDD_PASSWORD = '$USERPWD';
+        const BASE_URL = '$DIRECTORY';
         ?>">>$DIRECTORY/env.local.php
 
         # télécharger l'archive
         # Variables
-        URL="https://github.com/mithridatem/script_framework_mvc/blob/main/archivev1.tar.gz"
+        URL="https://github.com/mithridatem/script_framework_mvc/raw/refs/heads/main/archivev1.tar.gz"
+        FICHIER="archivev1.tar.gz"
 
         # Télécharger l'archive dans DEST_DIR
         cd "$DIRECTORY"
-        curl -L "$URL"
+        curl -L -o archivev1.tar.gz "https://github.com/mithridatem/script_framework_mvc/raw/refs/heads/main/archivev1.tar.gz"
+ 
 
         # Extraire au même niveau que l'archive
         tar -xzvf "$FICHIER"
