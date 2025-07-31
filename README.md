@@ -113,6 +113,10 @@ Exemple :
 //4 le nom de la méthode du controller (sans les parenthéses home pour home() dans l'exemple)
 $router->addRoute(new Route('/', 'GET', 'Home', 'home'));
 ```
-Pour des explications plus avancées (gestion des requêtes SQL et autre n'hésitez pas à me demander je vous donnerai des exemples)
+Pour des explications plus avancées  :
 
-Enjoy !!
+- gestion des requêtes SQL 
+- et autre 
+n'hésitez pas à me demander je rajouterai des exemples.
+
+Enjoy !!!
