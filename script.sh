@@ -36,22 +36,22 @@ else
         # Création des répertoires
         mkdir $DIRECTORY
         # Création fichier htaccess
-        echo "# Activation du rewrite des URL
-        RewriteEngine On
-        # base du projet (emplacement à partir de la racine du serveur)
-        RewriteBase /$DIRECTORY
-        # si ce n'est pas un répertoire
-        RewriteCond %{REQUEST_FILENAME} !-d
-        # Si ce n'est pas un fichier
-        RewriteCond %{REQUEST_FILENAME} !-f
+        echo -e "# Activation du rewrite des URL\n
+        RewriteEngine On\n
+        # base du projet (emplacement à partir de la racine du serveur)\n
+        RewriteBase /$DIRECTORY\n
+        # si ce n'est pas un répertoire\n
+        RewriteCond %{REQUEST_FILENAME} !-d\n
+        # Si ce n'est pas un fichier\n
+        RewriteCond %{REQUEST_FILENAME} !-f\n
         RewriteRule ^(.+)$ index.php [QSA,L]">>$DIRECTORY/.htaccess
         # Création du fichier de configuration BDD
-        echo "<?php
-        const DB_HOST = '$HOST';
-        const DB_NAME = '$DATABASE';
-        const DB_USER = '$USERDB';
-        const DB_PASSWORD = '$USERPWD';
-        const BASE_URL = '/$DIRECTORY';
+        echo -e "<?php\n
+        const DB_HOST = '$HOST';\n
+        const DB_NAME = '$DATABASE';\n
+        const DB_USER = '$USERDB';\n
+        const DB_PASSWORD = '$USERPWD';\n
+        const BASE_URL = '/$DIRECTORY';\n
         ?>">>$DIRECTORY/env.local.php
 
         # télécharger l'archive
@@ -68,9 +68,11 @@ else
         tar -xzvf "$FICHIER"
 
         echo "Archive dézippée avec succés"
-        echo "Votre projet a été créé"
-        echo "Fin du script"
+        rm -f $FICHIER;
+        echo "Archive supprimée avec succés"
 
+        echo "Votre projet a été créé"
+        
         # Test si composer est installé
         if  (! command -v composer &> /dev/null)
         then
@@ -85,3 +87,4 @@ else
         echo "composer install ok"
     fi
 fi
+echo "Fin du script"
