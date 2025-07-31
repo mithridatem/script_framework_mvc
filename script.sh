@@ -88,4 +88,4 @@ else
     fi
 fi
 echo "Fin du script"
-echo "Lire le fichier README.md pour commencer à l'utiliser la projet"
+echo "Lire le fichier README.md pour commencer à l'utiliser la projet !"
