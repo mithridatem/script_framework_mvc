@@ -46,7 +46,8 @@ fi
 
 cp -R "$ROOT/templates/$PROFILE" "$DEST"
 # Le nom du projet ne contient aucun caractère spécial pour sed.
-sed "s/__PROJECT_NAME__/$NAME/g" "$DEST/composer.json" > "$DEST/composer.tmp"
+SLUG="${NAME,,}"
+sed "s/__PROJECT_NAME__/$SLUG/g" "$DEST/composer.json" > "$DEST/composer.tmp"
 mv "$DEST/composer.tmp" "$DEST/composer.json"
 cp "$DEST/.env.example" "$DEST/.env"
 echo "Projet créé : $DEST"
