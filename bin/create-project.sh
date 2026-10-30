@@ -31,7 +31,7 @@ fi
 if [[ -z "$NAME" ]]; then
   read -r -p "Nom du projet (lettres, chiffres, _ ou -) : " NAME
 fi
-if [[ ! "$NAME" =~ ^[a-zA-Z][a-zA-Z0-9_-]*$ ]]; then
+if [[ ! "$NAME" =~ ^[a-zA-Z][a-zA-Z0-9]*([_-][a-zA-Z0-9]+)*$ ]]; then
   echo "Nom de projet invalide : $NAME" >&2; exit 2
 fi
 if [[ ! -d "$TARGET_PARENT" ]]; then
