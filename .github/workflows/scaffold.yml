@@ -1,0 +1,20 @@
+name: MVC Basic scaffold
+on:
+  push:
+    branches: [main, "feat/scaffold-basic-mvc-routing"]
+  pull_request:
+jobs:
+  basic:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          tools: composer:v2
+      - name: Validate generated project
+        run: bash tests/smoke-basic.sh
+      - name: Install dependencies for generated Basic project
+        run: |
+          bash script.sh --profile basic --name ci_basic --no-install
+          cd ci_basic && composer install --no-interaction --prefer-dist
