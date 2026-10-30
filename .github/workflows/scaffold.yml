@@ -1,20 +1,30 @@
-name: MVC Basic scaffold
+name: MVC Basic and Advanced scaffold
 on:
   push:
-    branches: [main, "feat/scaffold-basic-mvc-routing"]
+    branches: [main, "feat/scaffold-basic-mvc-routing", "feat/scaffold-advanced-three-libraries"]
   pull_request:
 jobs:
-  basic:
+  scaffold:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: shivammathur/setup-php@v2
         with:
           php-version: '8.2'
+          extensions: pdo_mysql
           tools: composer:v2
-      - name: Validate generated project
-        run: bash tests/smoke-basic.sh
-      - name: Install dependencies for generated Basic project
+      - name: Smoke tests
         run: |
-          bash script.sh --name ci_basic --no-install
+          bash tests/smoke-basic.sh
+          bash tests/smoke-advanced.sh
+      - name: Test Basic dependencies
+        run: |
+          bash script.sh --name ci_basic --profile basic --no-install
           cd ci_basic && composer install --no-interaction --prefer-dist
+      - name: Test Advanced DTO and security
+        run: |
+          bash script.sh --name ci_advanced --profile advanced --no-install
+          cd ci_advanced
+          composer install --no-interaction --prefer-dist
+          php tests/login_input_test.php
+          php tests/register_user_input_test.php
