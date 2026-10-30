@@ -16,5 +16,5 @@ jobs:
         run: bash tests/smoke-basic.sh
       - name: Install dependencies for generated Basic project
         run: |
-          bash script.sh --profile basic --name ci_basic --no-install
+          bash script.sh --name ci_basic --no-install
           cd ci_basic && composer install --no-interaction --prefer-dist
